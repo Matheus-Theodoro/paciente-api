@@ -1,13 +1,24 @@
 package com.enjoy.paciente.domain;
 
-public class Informações {
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Informações implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	private String consultas_marcadas;
 	private String consultas_relizadas;
 	private String retornos;
 	private String exames;
 	private String descrição;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "paciente_id")
 	private Paciente paciente;
 
 	public Informações() {
